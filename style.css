@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+
+}
+.logo{
+    font-family: Antonio;
+font-weight: 400;
+font-size: 28px;
+line-height: 100%;
+letter-spacing: -1.05px;
+text-transform: uppercase;
+background: #FFFFFF;
+
+
+}
+.navbar-buttons{
+    font-family: Spartan;
+font-weight: 700;
+font-size: 11px;
+line-height: 25px;
+letter-spacing: 1px;
+text-transform: uppercase;
+background: #FFFFFF;
+
+
+}
+.heading{
+    font-family: Antonio;
+font-weight: 400;
+font-size: 80px;
+line-height: 100%;
+letter-spacing: 0px;
+background: #FFFFFF;
+
+text-transform: uppercase;
+}
+.description{
+font-family: Spartan;
+font-weight: 400;
+font-size: 14px;
+line-height: 25px;
+letter-spacing: 0px;
+}
+.button{
+    font-family: Spartan;
+font-weight: 700;
+font-size: 12px;
+line-height: 25px;
+letter-spacing: 2.57px;
+text-transform: uppercase;
+
+}
+.card-heading{
+    font-family: Spartan;
+font-weight: 700;
+font-size: 11px;
+line-height: 25px;
+letter-spacing: 1px;
+text-transform: uppercase;
+
+}
+.card-texts{
+    font-family: Antonio;
+font-weight: 400;
+font-size: 40px;
+line-height: 100%;
+letter-spacing: -1.5px;
+text-transform: uppercase;
+
+}
