@@ -1,0 +1,18 @@
+
+# Character Counter
+made dark theme working for page
+
+added below logics for page
+1. character limit toggle with js
+2. charater counter logic 
+3. word counter logic 
+4. sentence counter logic
+
+5. exclude spaces logic with character counter
+
+6. letter density map
+7. Density Progress bars
+8. letter density progress percentages
+
+added limit to letter density progress bars 
+See more or see less button for density bar count higher than set limit
