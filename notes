@@ -18,3 +18,6 @@ added limit to letter density progress bars
 See more or see less button for density bar count higher than set limit
 
 # Planets website
+created planets website in js 
+added all planets and their data through js 
+added different color system according to planets 

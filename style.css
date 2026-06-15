@@ -20,7 +20,6 @@ body {
     --border-color: rgba(255, 255, 255, 0.200);
     --link-color: rgba(255, 255, 255, 0.500);
     --button-hover: rgba(216, 216, 216, 0.200);
-
     --mercury-color: rgba(65, 158, 187);
     --venus-color: rgba(237, 162, 73);
     --earth-color: rgba(109, 46, 213);
@@ -130,9 +129,6 @@ button {
     box-shadow: var(--neptune-color) 0px 5px 0px 0px inset;
 }
 
-/* .navbar-buttons ul li:active{
-    background-color: red;
-} */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -149,7 +145,6 @@ button {
 .mobile-planet-nav-buttons button {
     padding: 18px 4.5px;
     margin: 0 18px;
-    /* box-shadow: rgb(65, 158, 187) 0px -3px 0px inset; */
     color: var(--link-color);
     text-transform: uppercase;
     font-size: 11px;
@@ -164,12 +159,10 @@ button {
     margin: 0 20px;
     z-index: 5;
     left: -640px;
-    /* transition  : all 0.1s linear; */
     display: none;
 }
 
 .sidebar-active {
-    /* transform: translateX(0px); */
     left: 0px;
 }
 
@@ -273,9 +266,7 @@ button {
     display: grid;
     place-items: center;
     position: relative;
-
 }
-
 
 .planet-image {
     padding: 0px 0;
@@ -321,12 +312,17 @@ button {
 
 .internal-image {
     position: absolute;
-    top: 3%;
-    left: 24%;
+    top: 2%;
+    right: 2%;
+    bottom: 3%;
     width: 100%;
     z-index: 2;
+    display: flex;
+    justify-content: flex-end;
 }
-
+.internal-image img{
+    width: 50%;
+}
 .planet-image.mercury .internal-image img {
     max-height: 380px;
 }
@@ -337,47 +333,26 @@ button {
 
 .planet-image.earth .internal-image img {
     max-height: 420px;
-    position: absolute;
-    width: auto;
-    left: 25%;
 }
 
 .planet-image.mars .internal-image img {
     max-height: 410px;
-    position: absolute;
-    left: 25%;
-    width: 48%;
 }
 
 .planet-image.jupiter .internal-image img {
     max-height: 530px;
-    position: absolute;
-    left: 26%;
-    width: 48%;
 }
 
 .planet-image.saturn .internal-image img {
     max-height: 380px;
-    position: absolute;
-    left: 26%;
-    top: 98px;
-    width: auto;
 }
 
 .planet-image.uranus .internal-image img {
     max-height: 480px;
-    position: absolute;
-    left: 24%;
-    top: -8px;
-    width: 50%;
 }
 
 .planet-image.neptune .internal-image img {
     max-height: 460px;
-    position: absolute;
-    left: 24%;
-    top: -6px;
-    width: 50%;
 }
 
 .geology-image {
@@ -398,7 +373,6 @@ button {
     width: auto;
 }
 
-/* /hero  */
 .hero-right {
     padding-left: 10px;
 }
@@ -421,6 +395,7 @@ button {
     line-height: 1.4;
     color: var(--headings-color);
     padding: 24px 0;
+    min-height: 210px;
 }
 
 .hero-description {
@@ -542,6 +517,7 @@ button {
 
     .description {
         max-width: 339px;
+        min-height: auto;
     }
 }
 
@@ -670,8 +646,7 @@ button {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding: 14px 15px;
-
+        padding: 14px 15px; 
     }
 
     .card-texts h2 {
@@ -682,64 +657,11 @@ button {
 
 @media (max-width:550px) {
     .hero-bottom {
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
-}
-@media (max-width:480px) {
-
-    
-.planet-image.mercury .internal-image img {
-    max-height: 380px;
-}
-
-.planet-image.venus .internal-image img {
-    max-height: 400px;
-}
-
-.planet-image.earth .internal-image img {
-    max-height: 420px;
-    position: absolute;
-    width: auto;
-    left: 25%;
-}
-
-.planet-image.mars .internal-image img {
-    max-height: 410px;
-    position: absolute;
-    left: 25%;
-    width: 48%;
-}
-
-.planet-image.jupiter .internal-image img {
-    max-height: 530px;
-    position: absolute;
-    left: 26%;
-    width: 48%;
-}
-
-.planet-image.saturn .internal-image img {
-    max-height: 380px;
-    position: absolute;
-    left: 26%;
-    top: 98px;
-    width: auto;
-}
-
-.planet-image.uranus .internal-image img {
-    max-height: 480px;
-    position: absolute;
-    left: 24%;
-    top: -8px;
-    width: 50%;
-}
-
-.planet-image.neptune .internal-image img {
-    max-height: 460px;
-    position: absolute;
-    left: 24%;
-    top: -6px;
-    width: 50%;
-}
-
+        .description {
+        max-width: 90%;
+        text-align: center;
+    }
 }

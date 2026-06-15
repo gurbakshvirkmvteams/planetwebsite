@@ -200,16 +200,6 @@ const planets = {
         "color": "rgba(45, 104, 240)"
     }
 }
-// const planetSizes = {
-//     mercury: "290px",
-//     venus: "420px",
-//     earth: "450px",
-//     mars: "350px",
-//     jupiter: "600px",
-//     saturn: "650px",
-//     uranus: "500px",
-//     neptune: "500px"
-// };
 const planetList = document.querySelectorAll('.planets');
 const planetImage = document.getElementById('planetImage');
 const planetName = document.getElementById('planetName');
@@ -231,32 +221,23 @@ const mobileOverviewBtn = document.getElementById('mobileOverviewBtn');
 const mobileInternalBtn = document.getElementById('mobileInternalBtn');
 const mobileGeologyBtn = document.getElementById('mobileGeologyBtn');
 
-
 let currentPlanet = "mercury";
 let selectedPlanet = "";
 let imgClass = planetImage.parentElement
-
 planetList.forEach((planet) => {
     planet.addEventListener('click', () => {
-        // console.log(planet.innerText.toLowerCase());
         selectedPlanet = planet.innerText.toLowerCase();
         internalImage.innerHTML = ``;
         geologyImage.innerHTML = ``;
- mobileSidebar.classList.toggle('sidebar-active')
+        mobileSidebar.classList.toggle('sidebar-active')
         planetList.forEach(item => item.classList.remove('active'));
         planet.classList.add('active');
-
-        // console.log("Selected Planet = ", selectedPlanet)
         renderPlanet(planet.innerText.toLowerCase());
-
-
     })
-    // console.log(planet.innerText.toLowerCase())
 })
 function renderPlanet(e) {
     const planet = planets[e];
     imgClass.className = `planet-image ${planet.name.toLowerCase()}`
-    //  cos
     console.log(planetImage.parentElement);
     planetName.textContent = planet.name;
     planetImage.src = planet.images.planet;
@@ -267,14 +248,9 @@ function renderPlanet(e) {
     radiusHeading.textContent = `${planet.radius}`;
     revolutionTimeHeading.textContent = `${planet.revolution}`;
     rotationTimeHeading.textContent = `${planet.rotation}`;
-    // document.body.classList.add = planet.name;
-
     overviewBtn.style.backgroundColor = planet.color;
     geologyBtn.style.backgroundColor = ''
     structureBtn.style.backgroundColor = ''
-    // console.log(document.body)
-    // buttons 
-    console.log()
     overviewBtn.addEventListener('click', () => {
         planetImage.src = planet.images.planet;
         planetDescription.textContent = planet.overview.content;
@@ -301,8 +277,8 @@ function renderPlanet(e) {
     })
     structureBtn.addEventListener('click', () => {
         internalImage.innerHTML = `<img src="${planet.images.internal}" alt="" />`;
-         geologyImage.innerHTML = ``
-          imgClass.className = `planet-image ${planet.name.toLowerCase()}`
+        geologyImage.innerHTML = ``
+        imgClass.className = `planet-image ${planet.name.toLowerCase()}`
         overviewBtn.style.backgroundColor = ''
         geologyBtn.style.backgroundColor = ''
         structureBtn.style.backgroundColor = planet.color;
@@ -334,8 +310,6 @@ function renderPlanet(e) {
         mobileGeologyBtn.style.boxShadow = ``
         mobileInternalBtn.style.boxShadow = ``
     })
-    // planetImage.parentElement.style.maxWidth =  planetSizes[e];
-    // console.log(planet);
 }
 renderPlanet(currentPlanet)
 hamburger.addEventListener('click', () => {
