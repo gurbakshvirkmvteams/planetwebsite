@@ -1,74 +1,745 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-:root{
+
+body {
+    background-image: url('assets/background-stars.svg');
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-color: #070724;
+}
+
+:root {
+    --font-primary: "Antonio";
+    --font-secondary: "League Spartan";
+    --main-text-transform: uppercase;
+    --headings-color: #FFFFFF;
+    --sub-headings-color: rgb(193, 193, 200);
+    --border-color: rgba(255, 255, 255, 0.200);
+    --link-color: rgba(255, 255, 255, 0.500);
+    --button-hover: rgba(216, 216, 216, 0.200);
+
+    --mercury-color: rgba(65, 158, 187);
+    --venus-color: rgba(237, 162, 73);
+    --earth-color: rgba(109, 46, 213);
+    --mars-color: rgba(209, 76, 50);
+    --jupiter-color: rgba(216, 58, 52);
+    --saturn-color: rgba(205, 81, 32);
+    --uranus-color: rgba(30, 193, 162);
+    --neptune-color: rgba(45, 104, 240);
+}
+
+ul li {
+    list-style-type: none;
+}
+
+a {
+    color: initial;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.main-container {
+    max-width: 1580px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.navbar {
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 44px;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-content {
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: -0.05px;
+    text-transform: var(--main-text-transform);
+    color: var(--headings-color);
+    padding: 26px 0;
+}
+
+.navbar-buttons ul li {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--sub-headings-color);
+    padding: 27px 17px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.navbar-buttons ul li:first-child:hover,
+.navbar-buttons ul li:first-child.active {
+    box-shadow: var(--mercury-color) 0px 5px 0px 0px inset;
+}
+
+.navbar-buttons ul li:nth-child(2):hover,
+.navbar-buttons ul li:nth-child(2).active {
+    box-shadow: var(--venus-color) 0px 5px 0px 0px inset;
+}
+
+.navbar-buttons ul li:nth-child(3):hover,
+.navbar-buttons ul li:nth-child(3).active {
+    box-shadow: var(--earth-color) 0px 5px 0px 0px inset;
+}
+
+.navbar-buttons ul li:nth-child(4):hover,
+.navbar-buttons ul li:nth-child(4).active {
+    box-shadow: var(--mars-color) 0px 5px 0px 0px inset;
+}
+
+.navbar-buttons ul li:nth-child(5):hover,
+.navbar-buttons ul li:nth-child(5).active {
+    box-shadow: var(--jupiter-color) 0px 5px 0px 0px inset;
+}
+
+.navbar-buttons ul li:nth-child(6):hover,
+.navbar-buttons ul li:nth-child(6).active {
+    box-shadow: var(--saturn-color) 0px 5px 0px 0px inset;
+}
+
+.navbar-buttons ul li:nth-child(7):hover,
+.navbar-buttons ul li:nth-child(7).active {
+    box-shadow: var(--uranus-color) 0px 5px 0px 0px inset;
+}
+
+.navbar-buttons ul li:nth-child(8):hover,
+.navbar-buttons ul li:nth-child(8).active {
+    box-shadow: var(--neptune-color) 0px 5px 0px 0px inset;
+}
+
+/* .navbar-buttons ul li:active{
+    background-color: red;
+} */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    opacity: 50%;
+}
+
+.mobile-planet-nav-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mobile-planet-nav-buttons button {
+    padding: 18px 4.5px;
+    margin: 0 18px;
+    /* box-shadow: rgb(65, 158, 187) 0px -3px 0px inset; */
+    color: var(--link-color);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.sidebar {
+    position: absolute;
+    background-color: white;
+    top: 8%;
+    width: 90%;
+    margin: 0 20px;
+    z-index: 5;
+    left: -640px;
+    /* transition  : all 0.1s linear; */
+    display: none;
+}
+
+.sidebar-active {
+    /* transform: translateX(0px); */
+    left: 0px;
+}
+
+.mobile-planet-nav-buttons {
+    display: none;
+}
+
+.sidebar-planet-list li {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(56, 56, 79);
+    background: rgb(7, 7, 36);
+    position: relative;
+}
+
+.mercury-item,
+.venus-item,
+.earth-item,
+.mars-item,
+.jupiter-item,
+.saturn-item,
+.uranus-item,
+.neptune-item {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.mercury-item {
+    background: var(--mercury-color);
+}
+
+.venus-item {
+    background: var(--venus-color);
+}
+
+.earth-item {
+    background: var(--earth-color);
+}
+
+.mars-item {
+    background: var(--mars-color);
+}
+
+.jupiter-item {
+    background: var(--jupiter-color);
+}
+
+.saturn-item {
+    background: var(--saturn-color);
+}
+
+.uranus-item {
+    background: var(--uranus-color);
+}
+
+.neptune-item {
+    background: var(--neptune-color);
+}
+
+.sidebar-planet-list li span:last-child {
+    position: absolute;
+    right: 25px;
+}
+
+.sidebar-planet-list li span:last-child img {
+    height: 10px;
+}
+
+.sidebar-planet-list li {
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--headings-color);
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    display: flex;
+    align-items: center;
+}
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 100px;
+    gap: 60px;
+}
+
+.hero-image {
+    grid-column: span 2;
+    display: grid;
+    place-items: center;
+    position: relative;
 
 }
-.logo{
-    font-family: Antonio;
-font-weight: 400;
-font-size: 28px;
-line-height: 100%;
-letter-spacing: -1.05px;
-text-transform: uppercase;
-background: #FFFFFF;
 
 
+.planet-image {
+    padding: 0px 0;
+    position: relative;
+    width: 100%;
 }
-.navbar-buttons{
-    font-family: Spartan;
-font-weight: 700;
-font-size: 11px;
-line-height: 25px;
-letter-spacing: 1px;
-text-transform: uppercase;
-background: #FFFFFF;
 
+.planet-image img {
+    width: 100%;
+}
 
+.planet-image.mercury {
+    max-width: 400px;
 }
-.heading{
-    font-family: Antonio;
-font-weight: 400;
-font-size: 80px;
-line-height: 100%;
-letter-spacing: 0px;
-background: #FFFFFF;
 
-text-transform: uppercase;
+.planet-image.venus {
+    max-width: 420px;
 }
-.description{
-font-family: Spartan;
-font-weight: 400;
-font-size: 14px;
-line-height: 25px;
-letter-spacing: 0px;
-}
-.button{
-    font-family: Spartan;
-font-weight: 700;
-font-size: 12px;
-line-height: 25px;
-letter-spacing: 2.57px;
-text-transform: uppercase;
 
+.planet-image.earth {
+    max-width: 440px;
 }
-.card-heading{
-    font-family: Spartan;
-font-weight: 700;
-font-size: 11px;
-line-height: 25px;
-letter-spacing: 1px;
-text-transform: uppercase;
 
+.planet-image.mars {
+    max-width: 430px;
 }
-.card-texts{
-    font-family: Antonio;
-font-weight: 400;
-font-size: 40px;
-line-height: 100%;
-letter-spacing: -1.5px;
-text-transform: uppercase;
+
+.planet-image.jupiter {
+    max-width: 560px;
+}
+
+.planet-image.saturn {
+    max-width: 650px;
+}
+
+.planet-image.uranus {
+    max-width: 500px;
+}
+
+.planet-image.neptune {
+    max-width: 480px;
+}
+
+.internal-image {
+    position: absolute;
+    top: 3%;
+    left: 24%;
+    width: 100%;
+    z-index: 2;
+}
+
+.planet-image.mercury .internal-image img {
+    max-height: 380px;
+}
+
+.planet-image.venus .internal-image img {
+    max-height: 400px;
+}
+
+.planet-image.earth .internal-image img {
+    max-height: 420px;
+    position: absolute;
+    width: auto;
+    left: 25%;
+}
+
+.planet-image.mars .internal-image img {
+    max-height: 410px;
+    position: absolute;
+    left: 25%;
+    width: 48%;
+}
+
+.planet-image.jupiter .internal-image img {
+    max-height: 530px;
+    position: absolute;
+    left: 26%;
+    width: 48%;
+}
+
+.planet-image.saturn .internal-image img {
+    max-height: 380px;
+    position: absolute;
+    left: 26%;
+    top: 98px;
+    width: auto;
+}
+
+.planet-image.uranus .internal-image img {
+    max-height: 480px;
+    position: absolute;
+    left: 24%;
+    top: -8px;
+    width: 50%;
+}
+
+.planet-image.neptune .internal-image img {
+    max-height: 460px;
+    position: absolute;
+    left: 24%;
+    top: -6px;
+    width: 50%;
+}
+
+.geology-image {
+    max-width: 120px;
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.geology-image img {
+    width: 100%;
+}
+
+.planet-image.earth .geology-image img {
+    width: auto;
+}
+
+/* /hero  */
+.hero-right {
+    padding-left: 10px;
+}
+
+.heading h1 {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 80px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    color: var(--headings-color);
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+
+.description {
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--headings-color);
+    padding: 24px 0;
+}
+
+.hero-description {
+    padding-top: 20px;
+}
+
+.source-link {
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0px;
+    color: var(--link-color);
+}
+
+.wiki {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0px;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 0%;
+    color: var(--link-color);
+}
+
+.buttons-container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 44px 0;
+}
+
+.buttons-container button {
+    align-items: center;
+}
+
+.buttons-container button h3 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 2.57px;
+    text-transform: uppercase;
+    color: var(--link-color);
+    border: 1px solid var(--border-color);
+    padding: 12px 28px;
+    display: flex;
+    gap: 25px;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.buttons-container button:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(56, 56, 79);
+}
+
+.hero-bottom {
+    display: flex;
+    gap: 30px;
+    padding: 48px 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    padding: 24px 22px;
+    width: 100%;
+}
+
+.card-heading h4 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--link-color);
+}
+
+.card-texts h2 {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: -1.5;
+    text-transform: uppercase;
+    color: var(--headings-color);
+    padding-top: 16px;
+}
+
+@media (max-width:1000px) {
+    .navbar-wrapper {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 14px;
+    }
+
+    .logo {
+        padding: 26px 0 18px;
+    }
+
+    .navbar-buttons ul li {
+        padding: 18px 17px;
+    }
+
+    .hero-top {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0;
+    }
+
+    .hero-right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 60px;
+    }
+
+    .description {
+        max-width: 339px;
+    }
+}
+
+@media (max-width:768px) {
+    .hero-right {
+        padding-left: 0px;
+    }
+
+    .heading h1 {
+        font-size: 48px;
+    }
+
+    .description {
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    .hero-description {
+        width: 50%;
+    }
+
+    .buttons-container {
+        width: 40%;
+    }
+
+    .buttons-container button h3 {
+        font-size: 11px;
+        gap: 12px;
+        padding: 10px 24px;
+        letter-spacing: 1.5px;
+    }
+
+    .source-link {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .wiki {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .card {
+        padding: 16px 15px;
+    }
+
+    .card-heading h4 {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .card-texts h2 {
+        font-size: 24px;
+        padding-top: 8px;
+    }
+
+    .hero-bottom {
+        display: flex;
+        gap: 12px;
+        padding: 28px 0;
+    }
+}
+
+@media (max-width:700px) {
+    .navbar {
+        padding: 8px 4px;
+    }
+
+    .sidebar {
+        display: block;
+    }
+
+    .navbar-buttons {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hero-description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-description {
+        width: 100%;
+    }
+
+    .description {
+        max-width: 80%;
+        text-align: center;
+    }
+
+    .logo {
+        padding: 0px 0 0px;
+    }
+
+    .mobile-planet-nav-buttons {
+        display: flex;
+    }
+
+    .navbar-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-right {
+        flex-direction: column;
+    }
+
+    .buttons-container {
+        display: none;
+    }
+
+    .hero-bottom {
+        flex-direction: column;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 15px;
+
+    }
+
+    .card-texts h2 {
+        font-size: 20px;
+        padding-top: 0px;
+    }
+}
+
+@media (max-width:550px) {
+    .hero-bottom {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+@media (max-width:480px) {
+
+    
+.planet-image.mercury .internal-image img {
+    max-height: 380px;
+}
+
+.planet-image.venus .internal-image img {
+    max-height: 400px;
+}
+
+.planet-image.earth .internal-image img {
+    max-height: 420px;
+    position: absolute;
+    width: auto;
+    left: 25%;
+}
+
+.planet-image.mars .internal-image img {
+    max-height: 410px;
+    position: absolute;
+    left: 25%;
+    width: 48%;
+}
+
+.planet-image.jupiter .internal-image img {
+    max-height: 530px;
+    position: absolute;
+    left: 26%;
+    width: 48%;
+}
+
+.planet-image.saturn .internal-image img {
+    max-height: 380px;
+    position: absolute;
+    left: 26%;
+    top: 98px;
+    width: auto;
+}
+
+.planet-image.uranus .internal-image img {
+    max-height: 480px;
+    position: absolute;
+    left: 24%;
+    top: -8px;
+    width: 50%;
+}
+
+.planet-image.neptune .internal-image img {
+    max-height: 460px;
+    position: absolute;
+    left: 24%;
+    top: -6px;
+    width: 50%;
+}
 
 }

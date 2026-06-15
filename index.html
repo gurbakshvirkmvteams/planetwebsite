@@ -1,12 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planet Fact Site</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=League+Spartan:wght@100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+    <header class="">
+        <section class="main-container navbar">
+            <div class="flex justify-content navbar-wrapper">
+                <div class="logo">THE PLANETS</div>
+                <div class="navbar-buttons">
+                    <ul class="flex planet-list">
+                        <li class="planets active">Mercury</li>
+                        <li class="planets">Venus</li>
+                        <li class="planets">earth</li>
+                        <li class="planets">mars</li>
+                        <li class="planets">jupiter</li>
+                        <li class="planets">saturn</li>
+                        <li class="planets">uranus</li>
+                        <li class="planets">neptune</li>
+                    </ul>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="17">
+                        <g fill="#FFF" fill-rule="evenodd">
+                            <path d="M0 0h24v3H0zM0 7h24v3H0zM0 14h24v3H0z" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <div class="mobile-planet-nav-buttons flex">
+            <button class="overview-btn" id="mobileOverviewBtn">overview</button>
+            <button class="structure-btn" id="mobileInternalBtn">internal</button>
+            <button class="geology-btn" id="mobileGeologyBtn">surface</button>
+        </div>
+        <div class="sidebar" id="mobileSidebar">
+            <ul class="sidebar-planet-list">
+                <li class="planets">
+                    <span class="mercury-item"></span>Mercury<span><img src="assets/arrow-right.svg"
+                            alt="" /></span>
+                </li>
+                <li class="planets">
+                    <span class="venus-item"></span>Venus<span><img src="assets/arrow-right.svg"
+                            alt="" /></span>
+                </li>
+                <li class="planets">
+                    <span class="earth-item"></span>earth<span><img src="assets/arrow-right.svg"
+                            alt="" /></span>
+                </li>
+                <li class="planets">
+                    <span class="mars-item"></span>mars<span><img src="assets/arrow-right.svg"
+                            alt="" /></span>
+                </li>
+                <li class="planets">
+                    <span class="jupiter-item"></span>jupiter<span><img src="assets/arrow-right.svg"
+                            alt="" /></span>
+                </li>
+                <li class="planets">
+                    <span class="saturn-item"></span>saturn<span><img src="assets/arrow-right.svg"
+                            alt="" /></span>
+                </li>
+                <li class="planets">
+                    <span class="uranus-item"></span>uranus<span><img src="assets/arrow-right.svg"
+                            alt="" /></span>
+                </li>
+                <li class="planets">
+                    <span class="neptune-item"></span>neptune<span><img src="assets/arrow-right.svg"
+                            alt="" /></span>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main class="main-container">
+        <section class="hero">
+            <div class="hero-top">
+                <!-- image container -->
+                <div class="hero-image">
+                    <div class="planet-image "><img id="planetImage" src="assets/mercury'.svg" alt="planet-image" />
+                        <span class="internal-image"><img src="" alt="" /></span>
+                        <span class="geology-image"><img src="" /></span>
+                    </div>
+                </div>
+                <!-- headings description and buttons container  -->
+                <div class="hero-right">
+                    <!-- heading-description-source container  -->
+                    <div class="hero-description">
+                        <div class="heading">
+                            <h1 id="planetName">mercury</h1>
+                        </div>
+                        <div id="planetDescription" class="description">Mercury is the smallest planet in the Solar
+                            System and the closest to the
+                            Sun. Its orbit around
+                            the Sun takes 87.97 Earth days, the shortest of all the Sun's planets. Mercury is one of
+                            four
+                            terrestrial planets in the Solar System, and is a rocky body like Earth.
+                        </div>
+                        <div id="sourceLink" class="source-link">Source : <a href="" class="wiki">Wikipedia</a><span>
+                                <img src="assets/link-arrow.svg" alt="" /></span></div>
+
+                    </div>
+                    <!-- buttons container  -->
+                    <div class="buttons-container flex">
+                        <button class="flex active overview-btn" id="overviewBtn">
+                            <h3><span>01</span>OVERVIEW</h3>
+                        </button>
+                        <button class="flex structure-btn" id="structureBtn">
+                            <h3><span>02</span>Internal Structure</h3>
+                        </button>
+                        <button class="flex geology-btn" id="geologyBtn">
+                            <h3><span>03</span>Surface Geology</h3>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-bottom">
+                <div class="card">
+                    <div class="card-heading">
+                        <h4>Rotation Time</h4>
+                    </div>
+                    <div class="card-texts">
+                        <h2 id="rotationTimeHeading">58.6 Days</h2>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-heading">
+                        <h4>Revolution Time</h4>
+                    </div>
+                    <div class="card-texts">
+                        <h2 id="revolutionTimeHeading">87.97 Days</h2>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-heading">
+                        <h4>Radius</h4>
+                    </div>
+                    <div class="card-texts">
+                        <h2 id="radiusHeading">2,439.7 KM</h2>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-heading">
+                        <h4>Average Temp.</h4>
+                    </div>
+                    <div class="card-texts">
+                        <h2 id="temperatureHeading">430°c</h2>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
+
 </html>
