@@ -248,7 +248,10 @@ button {
     display: flex;
     align-items: center;
 }
-
+.sidebar-planet-list li:hover {
+    background:  rgb(56, 56, 79);
+    border-bottom:1px solid #FFFFFF;
+}
 .hero {
     max-width: 1200px;
     margin: 0 auto;

@@ -277,6 +277,7 @@ function renderPlanet(e) {
     })
     structureBtn.addEventListener('click', () => {
         internalImage.innerHTML = `<img src="${planet.images.internal}" alt="" />`;
+           planetDescription.textContent = planet.structure.content;
         geologyImage.innerHTML = ``
         imgClass.className = `planet-image ${planet.name.toLowerCase()}`
         overviewBtn.style.backgroundColor = ''

@@ -20,4 +20,8 @@ See more or see less button for density bar count higher than set limit
 # Planets website
 created planets website in js 
 added all planets and their data through js 
-added different color system according to planets 
+added different color system according to planets
+added internal structure and overview button for each planets showing different image with js 
+added sidebar and hamburger icon 
+made page responsive for laptop
+added hover effects to buttons 
