@@ -200,6 +200,8 @@ const planets = {
         "color": "rgba(45, 104, 240)"
     }
 }
+
+
 const planetList = document.querySelectorAll('.planets');
 const planetImage = document.getElementById('planetImage');
 const planetName = document.getElementById('planetName');
@@ -222,6 +224,7 @@ const mobileInternalBtn = document.getElementById('mobileInternalBtn');
 const mobileGeologyBtn = document.getElementById('mobileGeologyBtn');
 
 let currentPlanet = "mercury";
+let currentView = "overview";
 let selectedPlanet = "";
 let imgClass = planetImage.parentElement
 planetList.forEach((planet) => {
@@ -233,12 +236,14 @@ planetList.forEach((planet) => {
         planetList.forEach(item => item.classList.remove('active'));
         planet.classList.add('active');
         renderPlanet(planet.innerText.toLowerCase());
+        currentPlanet = planet.innerText.toLowerCase();
     })
 })
+// render planet function 
 function renderPlanet(e) {
     const planet = planets[e];
     imgClass.className = `planet-image ${planet.name.toLowerCase()}`
-    console.log(planetImage.parentElement);
+    // console.log(planetImage.parentElement);
     planetName.textContent = planet.name;
     planetImage.src = planet.images.planet;
     internalImage.src = planet.images.internal;
@@ -252,67 +257,126 @@ function renderPlanet(e) {
     geologyBtn.style.backgroundColor = ''
     structureBtn.style.backgroundColor = ''
     overviewBtn.addEventListener('click', () => {
-        planetImage.src = planet.images.planet;
-        planetDescription.textContent = planet.overview.content;
-        sourceLink.href = planet.overview.source;
-        internalImage.innerHTML = ``;
-        geologyImage.innerHTML = ``;
-        console.log(planet.color);
-        console.log(overviewBtn.classList)
-        overviewBtn.style.backgroundColor = planet.color;
-        overviewBtn.style.color = "white"
-        geologyBtn.style.backgroundColor = ''
-        structureBtn.style.backgroundColor = ''
+        overviewDesktopBtn(planet)
     })
     geologyBtn.addEventListener('click', () => {
-        geologyImage.src = planet.images.geology;
-        planetDescription.textContent = planet.geology.content;
-        sourceLink.href = planet.geology.source;
-        geologyImage.innerHTML = `<img src="${planet.images.geology}" alt="" />`;
-        internalImage.innerHTML = ``;
-        overviewBtn.style.backgroundColor = ''
-        geologyBtn.style.backgroundColor = planet.color;
-        structureBtn.style.backgroundColor = ''
-
+        geologyDesktopBtn(planet)
     })
     structureBtn.addEventListener('click', () => {
-        internalImage.innerHTML = `<img src="${planet.images.internal}" alt="" />`;
-           planetDescription.textContent = planet.structure.content;
-        geologyImage.innerHTML = ``
-        imgClass.className = `planet-image ${planet.name.toLowerCase()}`
-        overviewBtn.style.backgroundColor = ''
-        geologyBtn.style.backgroundColor = ''
-        structureBtn.style.backgroundColor = planet.color;
+        structureDesktopBtn(planet)
     })
     mobileGeologyBtn.addEventListener('click', () => {
-        geologyImage.src = planet.images.geology;
-        planetDescription.textContent = planet.geology.content;
-        sourceLink.href = planet.geology.source;
-        geologyImage.innerHTML = `<img src="${planet.images.geology}" alt="" />`;
-        internalImage.innerHTML = ``;
-        mobileGeologyBtn.style.boxShadow = `${planet.color} 0px -3px 0px inset`
-        mobileOverviewBtn.style.boxShadow = ``
-        mobileInternalBtn.style.boxShadow = ``
+        geologyMobile(planet)
     })
     mobileInternalBtn.addEventListener(('click'), () => {
-        internalImage.innerHTML = `<img src="${planet.images.internal}" alt="" />`;
-        geologyImage.innerHTML = ``;
-        mobileInternalBtn.style.boxShadow = ` ${planet.color} 0px -3px 0px inset`
-        mobileGeologyBtn.style.boxShadow = ``
-        mobileOverviewBtn.style.boxShadow = ``
+        internalStructureMobile(planet)
     })
     mobileOverviewBtn.addEventListener(('click'), () => {
-        planetImage.src = planet.images.planet;
-        planetDescription.textContent = planet.overview.content;
-        sourceLink.href = planet.overview.source;
-        internalImage.innerHTML = ``;
-        geologyImage.innerHTML = ``;
-        mobileOverviewBtn.style.boxShadow = ` ${planet.color} 0px -3px 0px inset`
-        mobileGeologyBtn.style.boxShadow = ``
-        mobileInternalBtn.style.boxShadow = ``
+        overviewMobile(planet)
     })
+    switch (currentView) {
+        case "overview":
+            planetImage.src = planet.images.planet;
+            planetDescription.textContent = planet.overview.content;
+            sourceLink.href = planet.overview.source;
+
+            mobileOverviewBtn.style.boxShadow =
+                `${planet.color} 0px -3px 0px inset`;
+            mobileGeologyBtn.style.boxShadow = "";
+            mobileInternalBtn.style.boxShadow = "";
+            break;
+
+        case "structure":
+            internalImage.innerHTML =
+                `<img src="${planet.images.internal}" alt="">`;
+
+            mobileInternalBtn.style.boxShadow =
+                `${planet.color} 0px -3px 0px inset`;
+            mobileOverviewBtn.style.boxShadow = "";
+            mobileGeologyBtn.style.boxShadow = "";
+            break;
+
+        case "geology":
+            geologyImage.innerHTML =
+                `<img src="${planet.images.geology}" alt="">`;
+
+            mobileGeologyBtn.style.boxShadow =
+                `${planet.color} 0px -3px 0px inset`;
+            mobileOverviewBtn.style.boxShadow = "";
+            mobileInternalBtn.style.boxShadow = "";
+            break;
+    }
 }
-renderPlanet(currentPlanet)
+
+// desktop buttons 
+function overviewDesktopBtn(planet) {
+    planetImage.src = planet.images.planet;
+    planetDescription.textContent = planet.overview.content;
+    sourceLink.href = planet.overview.source;
+    internalImage.innerHTML = ``;
+    geologyImage.innerHTML = ``;
+    console.log(planet.color);
+    console.log(overviewBtn.classList)
+    overviewBtn.style.backgroundColor = planet.color;
+    overviewBtn.style.color = "white"
+    geologyBtn.style.backgroundColor = ''
+    structureBtn.style.backgroundColor = ''
+    currentView = "overview";
+}
+function geologyDesktopBtn(planet) {
+    geologyImage.src = planet.images.geology;
+    planetDescription.textContent = planet.geology.content;
+    sourceLink.href = planet.geology.source;
+    geologyImage.innerHTML = `<img src="${planet.images.geology}" alt="" />`;
+    internalImage.innerHTML = ``;
+    overviewBtn.style.backgroundColor = ''
+    geologyBtn.style.backgroundColor = planet.color;
+    structureBtn.style.backgroundColor = ''
+    currentView = "geology";
+}
+function structureDesktopBtn(planet) {
+    internalImage.innerHTML = `<img src="${planet.images.internal}" alt="" />`;
+    planetDescription.textContent = planet.structure.content;
+    geologyImage.innerHTML = ``
+    imgClass.className = `planet-image ${planet.name.toLowerCase()}`
+    overviewBtn.style.backgroundColor = ''
+    geologyBtn.style.backgroundColor = ''
+    structureBtn.style.backgroundColor = planet.color;
+    currentView = "structure";
+}
+// buttons for mobile 
+function geologyMobile(planet) {
+    geologyImage.src = planet.images.geology;
+    planetDescription.textContent = planet.geology.content;
+    sourceLink.href = planet.geology.source;
+    geologyImage.innerHTML = `<img src="${planet.images.geology}" alt="" />`;
+    internalImage.innerHTML = ``;
+    mobileGeologyBtn.style.boxShadow = `${planet.color} 0px -3px 0px inset`
+    mobileOverviewBtn.style.boxShadow = ``
+    mobileInternalBtn.style.boxShadow = ``
+    currentView = "geology";
+}
+function internalStructureMobile(planet) {
+    internalImage.innerHTML = `<img src="${planet.images.internal}" alt="" />`;
+    geologyImage.innerHTML = ``;
+    mobileInternalBtn.style.boxShadow = ` ${planet.color} 0px -3px 0px inset`
+    mobileGeologyBtn.style.boxShadow = ``
+    mobileOverviewBtn.style.boxShadow = ``
+    currentView = "structure";
+}
+function overviewMobile(planet) {
+    planetImage.src = planet.images.planet;
+    planetDescription.textContent = planet.overview.content;
+    sourceLink.href = planet.overview.source;
+    internalImage.innerHTML = ``;
+    geologyImage.innerHTML = ``;
+    mobileOverviewBtn.style.boxShadow = ` ${planet.color} 0px -3px 0px inset`
+    mobileGeologyBtn.style.boxShadow = ``
+    mobileInternalBtn.style.boxShadow = ``
+    currentView = "overview";
+}
+
+renderPlanet(currentPlanet);
 hamburger.addEventListener('click', () => {
     mobileSidebar.classList.toggle('sidebar-active')
 })
